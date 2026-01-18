@@ -1,0 +1,165 @@
+/* Custom Font Imports */
+@font-face {
+    font-family: 'Neue Montreal';
+    src: url('fonts/NeueMontreal-Regular.otf') format('opentype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Hello Imperfect';
+    src: url('fonts/HelloImperfectRegular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+/* Global Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Body Styling */
+body {
+    background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Neue Montreal', sans-serif;
+    color: #ffffff;
+}
+
+/* Container */
+.container {
+    max-width: 600px;
+    width: 90%;
+    padding: 60px 40px;
+    text-align: center;
+}
+
+/* Header Section */
+header {
+    margin-bottom: 80px;
+}
+
+/* Title Styling */
+h1 {
+    font-family: 'Hello Imperfect', 'Arial Black', sans-serif;
+    font-size: 5rem;
+    letter-spacing: 4px;
+    margin-bottom: 30px;
+    color: #ffffff;
+    text-transform: uppercase;
+}
+
+/* Description Text */
+.description {
+    font-family: 'Neue Montreal', 'Helvetica Neue', sans-serif;
+    font-weight: normal;
+    font-size: 1rem;
+    line-height: 1.8;
+    color: #e0e0e0;
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+/* Planet Navigation */
+.planet-nav {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 40px;
+}
+
+/* Planet Link Container */
+.planet-link {
+    text-decoration: none;
+    transition: transform 0.3s ease, filter 0.3s ease;
+    display: block;
+}
+
+.planet-link:hover {
+    transform: translateY(-10px);
+    filter: brightness(1.2);
+}
+
+/* Planet Container */
+.planet-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Planet SVG/Image Styling */
+.planet {
+    transition: all 0.3s ease;
+    filter: drop-shadow(0 10px 20px rgba(0, 0, 0, 0.4));
+    display: block;
+}
+
+.earth-planet {
+    width: 120px;
+    height: 120px;
+}
+
+.moon-planet {
+    width: 50px;
+    height: 50px;
+}
+
+/* Active State */
+.planet-link.active .earth-planet {
+    filter: drop-shadow(0 0 30px rgba(74, 144, 226, 0.8));
+    animation: pulse 2s ease-in-out infinite;
+}
+
+.planet-link.active .moon-planet {
+    filter: drop-shadow(0 0 20px rgba(211, 211, 211, 0.8));
+    animation: pulse 2s ease-in-out infinite;
+}
+
+/* Inactive State */
+.planet-link:not(.active) .planet {
+    opacity: 0.6;
+}
+
+.planet-link:not(.active):hover .planet {
+    opacity: 1;
+}
+
+/* Pulse Animation */
+@keyframes pulse {
+    0%, 100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.05);
+    }
+}
+
+/* Responsive Design */
+@media (max-width: 600px) {
+    h1 {
+        font-size: 3rem;
+    }
+    
+    .description {
+        font-size: 0.9rem;
+    }
+    
+    .planet-nav {
+        gap: 30px;
+    }
+    
+    .earth-planet {
+        width: 100px;
+        height: 100px;
+    }
+    
+    .moon-planet {
+        width: 40px;
+        height: 40px;
+    }
+}
